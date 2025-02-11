@@ -1,0 +1,475 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+.active {
+    transition: all 1.5s ease-in-out;
+    /* Smooth transition */
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    /* Shadow effect */
+    transform: translateX(-1%);
+    /* Initially move the element to the right */
+}
+
+/* Make sure the element can be in its normal position when not active */
+.inactive {
+    transform: translateX(0);
+    /* Bring it back to the original position */
+}
+
+.active:hover::before {
+    width: 9em;
+}
+
+.active::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+
+
+button {
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c500,
+        -6px -6px 12px #ffffff15;
+}
+
+button::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+button:hover::before {
+    width: 9em;
+}
+
+input:-webkit-autofill {
+    background-color: transparent !important;
+    /* Make the background transparent */
+   
+    /* Removes the shadow */
+
+    /* Keeps the text color black */
+}
+
+/* my project style */
+.formRegister {
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.696));
+  
+    
+}
+
+
+
+
+/* Global body and general layout */
+body {
+    @apply bg-gray-50 text-gray-900 font-sans tracking-wide;
+}
+
+/* Global link styles */
+a {
+    @apply text-orange-600 hover:text-orange-500 transition-colors duration-300;
+}
+
+/* Header Styles */
+
+
+
+
+
+    /* Hero Section Styles */
+    .hero {
+
+        @apply bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-center shadow-xl rounded-3xl;
+    }
+
+
+
+    .hero .cta-button {
+        @apply bg-orange-600 hover:bg-orange-500 text-white py-3 px-6 rounded-lg text-xl font-semibold transition-colors duration-300;
+    }
+
+    /* Product Card Styles */
+    .product-card {
+        @apply bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out;
+    }
+
+    .product-card img {
+        @apply rounded-t-lg w-full h-48 object-cover;
+    }
+
+    .product-card .details {
+        @apply p-6;
+    }
+
+    .product-card .product-title {
+        @apply text-xl font-semibold text-green-600;
+    }
+
+    .product-title {
+        @apply text-[16px] font-light font-serif text-emerald-600;
+    }
+
+    .product-card .price {
+        @apply text-lg text-orange-600;
+    }
+
+    .product-card .cta-button {
+        @apply bg-green-600 hover:bg-green-500 text-white py-2 px-4 rounded-md mt-4 transition-colors duration-300;
+    }
+
+
+
+    /* Form Inputs */
+    .form-input {
+        @apply bg-white border border-gray-300 text-gray-900 py-3 px-4 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600 transition-all duration-300;
+    }
+
+    .form-label {
+        @apply text-gray-700 font-medium mb-2 bg-transparent;
+    }
+
+    .form-submit-button {
+        @apply rounded-full bg-orange-600 hover:bg-orange-500 text-white py-3 px-6 text-lg font-semibold transition-colors duration-300;
+    }
+
+    /* Footer Styles */
+
+
+
+
+    .footer .footer-text {
+        @apply text-gray-400 mt-6 text-center;
+    }
+
+
+
+
+
+
+
+    .modal-footer {
+        @apply mt-6 flex justify-end space-x-4;
+    }
+
+    .modal-close-button {
+        @apply bg-gray-500 hover:bg-gray-400 text-white py-2 px-4 rounded-md transition duration-300;
+    }
+
+    .modal-action-button {
+        @apply bg-orange-600 hover:bg-orange-500 text-white py-3 px-6 rounded-md transition duration-300;
+    }
+
+
+    @property --angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+
+    /* .floting::before,
+    .floting::after {
+        content: "";
+        position: absolute;
+        width: calc(100% + 15px);
+        height: calc(100% + 15px);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) skew(7deg);
+        animation: spin 3s linear 0s infinite;
+        background-image: conic-gradient(from var(--angle), #0fd850,  red);
+        border-radius: 40px 40px 40px 40px;
+        z-index: -1;
+
+
+    }
+
+    .floting::after {
+        filter: blur(40px);
+    }
+
+
+
+    @keyframes spin {
+        from {
+            --angle: 0deg
+        }
+
+        to {
+            --angle: 360deg
+        }
+    } */
+
+
+
+    /* SHOW PRODUCTS */
+
+
+
+
+
+    .card {
+        width: 200px !important;
+    height: 376px !important;
+        background: #1313133d !important;
+        border: 2px solid #C72464;
+        border-radius: 40px !important;
+    }
+    .card2 {
+        width: 200px !important;
+    height: 260px !important;
+        background: #1313133d !important;
+        border: 2px solid #C72464;
+        border-radius: 40px !important;
+    }
+
+    .image {
+        background-color: #21151a !important;
+        border-radius: 2.5em 2.5em 0em 0em !important;
+        width: 100% !important;
+        height: 43% !important;
+        padding: 0px !important;
+
+
+    }
+
+    .image svg {
+        width: 75%;
+        margin-top: -322px;
+        margin-left: 30px;
+        
+    }
+
+    .productTitle {
+        text-align: center;
+        font-size: 21px;
+        font-weight: bold;
+        color: #C72464;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin: 5px  ;
+    }
+
+    .cost {
+        text-align: center;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #FF6D00;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .radio-inputs {
+        position: relative !important;
+        margin-top: 4.3em !important;
+        
+        display: flex !important;
+        flex-direction: column;
+        text-align: center;
+        flex-wrap: wrap !important;
+        border-radius: 0.5rem 0 !important;
+        background-color: #73EC8B !important;
+        box-sizing: border-box;
+        box-shadow: 0 0 0px 1px rgb(254, 7, 7) !important;
+        padding: 0.25rem !important;
+        width: 210px !important;
+        font-size: 14px !important;
+    }
+    .radio-categories {
+        
+        position: relative !important;
+        margin-top: 7em !important;
+        
+        display: flex !important;
+        flex-direction: column;
+        text-align: center;
+        flex-wrap: wrap !important;
+        border-radius: 0.5rem 0 !important;
+        background-color: #73EC8B !important;
+        box-sizing: border-box;
+        box-shadow: 0 0 0px 1px rgb(254, 7, 7) !important;
+        padding: 0.25rem !important;
+        width: 210px !important;
+        font-size: 14px !important;
+    }
+
+    .radio-inputs .radio {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    /* .radio-inputs .radio input {
+        display: none;
+    } */
+
+    .radio-inputs .radio .name {
+        display: flex !important;
+        font-weight: 600 !important;
+        cursor: pointer !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 0.5rem !important;
+        border: none !important;
+        padding: .5rem 0 !important;
+        color: #C72464 !important;
+        transition: all .15s ease-in-out !important;
+    }
+
+    .radio-inputs .radio input:checked+.name {
+        background-color: #371800;
+        color: #FF6D00;
+        font-weight: 600;
+    }
+
+    .addtocart {
+        width: 100%;
+        margin-top: 19px;
+        padding: 15px;
+        border: none;
+        border-top: 2px solid #C72464;
+        background-color: #131313;
+        color: #C72464;
+        font-weight: bold;
+        font-size: 15px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        border-radius: 0px 0px 38px 38px;
+        transition: 0.2s;
+    }
+
+    .addtocart:hover {
+        background-color: #C72464;
+        border-top: 2px solid transparent;
+        color: #111111;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .Btn {
+        position: relative;
+        width: 100px;
+        height: 50px;
+        border-radius: 45px;
+        border: none;
+        background-color: rgb(151, 95, 255);
+        color: white;
+        box-shadow: 0px 10px 10px rgb(210, 187, 253) inset,
+        0px 5px 10px rgba(5, 5, 5, 0.212),
+        0px -10px 10px rgb(124, 54, 255) inset;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .Btn::before {
+       
+        height: 2px;
+        position: absolute;
+        background-color: rgba(250, 250, 250, 0.678);
+        content: "";
+        filter: blur(1px);
+        top: 7px;
+        border-radius: 50%;
+      }
+      
+      .Btn::after {
+       
+        height: 2px;
+        position: absolute;
+        background-color: rgba(250, 250, 250, 0.137);
+        content: "";
+        filter: blur(1px);
+        bottom: 7px;
+        border-radius: 50%;
+      }
+      
+      .Btn:hover {
+        animation: jello-horizontal 0.9s both;
+      }
+      
+      @keyframes jello-horizontal {
+        0% {
+          transform: scale3d(1, 1, 1);
+        }
+      
+        30% {
+          transform: scale3d(1.25, 0.75, 1);
+        }
+      
+        40% {
+          transform: scale3d(0.75, 1.25, 1);
+        }
+      
+        50% {
+          transform: scale3d(1.15, 0.85, 1);
+        }
+      
+        65% {
+          transform: scale3d(0.95, 1.05, 1);
+        }
+      
+        75% {
+          transform: scale3d(1.05, 0.95, 1);
+        }
+      
+        100% {
+          transform: scale3d(1, 1, 1);
+        }
+      }
+      
+     
+  
+   

@@ -1,0 +1,114 @@
+.Hambozo {
+    width: 100%;
+    height: 3em;
+    border-radius: 0em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: transparent !important;
+    background-color: #111111;
+    /* Add a default background */
+    color: #C72464;;
+    /* Add text color */
+    cursor: pointer;
+}
+
+.Hambozo::before {
+
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #d8410f00 0%, #f9f04700 100%);
+    /* Specify a gradient or color */
+    transition: 0.5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.Hambozo:hover::before {
+    width: 9em;
+}
+
+
+.btn {
+  @apply absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-black text-white py-2;
+}
+
+.btn:hover  {
+    transform: translateY(-100%);
+}
+
+
+
+
+.CartBtn {
+    width: 100%;
+    height: 3em;
+    border-radius: 0em;
+    border: none;
+    background-color: rgb(255, 208, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .5s;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+  }
+  
+  .IconContainer {
+    position: absolute;
+    left: -50px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .5s;
+  }
+  
+  .icon {
+    border-radius: 1px;
+  }
+  
+  .text {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(17, 17, 17);
+    z-index: 1;
+    transition-duration: .5s;
+    font-size: 1.04em;
+    font-weight: 600;
+  }
+  
+  .CartBtn:hover .IconContainer {
+    transform: translateX(58px);
+    border-radius: 40px;
+    transition-duration: .5s;
+  }
+  
+  .CartBtn:hover .text {
+    transform: translate(10px,0px);
+    transition-duration: .5s;
+  }
+  
+  .CartBtn:active {
+    transform: scale(0.95);
+    transition-duration: .5s;
+  }
+
