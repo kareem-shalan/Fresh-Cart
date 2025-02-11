@@ -21,7 +21,7 @@ import { ReactQueryDevtools } from "./../node_modules/@tanstack/react-query-devt
 import AddCartContextProvider from "./context/addCartContext";
 import { ToastContainer } from "react-toastify";
 import Checkout from "./Component/Checkout/Checkout";
-import CheckoutInfoProvider from "./context/checkoutcontext";
+import CheckoutInfoProvider from "./context/checkoutContext";
 import Allorders from "./Component/Allorders/Allorders";
 import OredrscontextProvider from "./context/ordersContext";
 import Brands from "./Component/Brands/Brands";
