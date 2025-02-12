@@ -1,7 +1,6 @@
 import { createContext } from "react";
 import axios from "axios";
 
-
 export let CheckoutInfo = createContext();
 
 export default function CheckoutInfoProvider(props) {
