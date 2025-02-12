@@ -6,12 +6,14 @@ import * as yup from "yup";
 import formPhoto from "../../assets/formCheckout.jpg";
 import { CheckoutInfo } from "../../context/checkoutContext";
 import { AddCartContext } from "../../context/addCartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
   let MyYup = yup.object().shape({
     city: yup.string("Invalid city").required("city is required"),
     details: yup.string("Invalid details").required("details is required"),
-
+    email: yup.string().email("Invalid email").required("Email is required"),
     phone: yup
       .string()
       .matches(/^(\+20|0)?1[0125][\s-]?\d{4}[\s-]?\d{4}$/, "Invalid phone")
@@ -24,19 +26,24 @@ const Checkout = () => {
       details: "",
       phone: "",
       city: "",
+      email: "",
     },
 
     validationSchema: MyYup,
     onSubmit: () => handleCheckout(CartID, `http://localhost:5173`),
   });
   async function handleCheckout(CardId, url) {
-    let { data } = await PaymentCart(CardId, url, formik.values);
-
-    window.location.href = data.session.url;
+    try {
+      let { data } = await PaymentCart(CardId, url, formik.values);
+      window.location.href = data.session.url;
+    } catch (error) {
+      toast.error("Checkout failed. Please try again.");
+    }
   }
 
   return (
     <>
+      <ToastContainer />
       <StyledWrapper
         style={{
           backgroundImage: `url(${formPhoto})   `,
@@ -51,6 +58,74 @@ const Checkout = () => {
           className=" w-full backdrop-blur-[3px]   overflow-hidden md:rounded-3xl flex  justify-center  "
         >
           <div className="w-[50%] relative flex justify-center items-center  md:h-[600px] flex-col  ">
+            <div className="md:flex md:flex-wrap md:justify-around md:items-center">
+              <div className="form-control w-[50%]">
+                <input
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  type="email"
+                  value={formik.values.email}
+                  name="email"
+                  id="email"
+                  required
+                />
+                <label id="email" className="form-label">
+                  <span style={{ transitionDelay: "0ms" }}>e</span>
+                  <span style={{ transitionDelay: "50ms" }}>m</span>
+                  <span style={{ transitionDelay: "100ms" }}>a</span>
+                  <span style={{ transitionDelay: "150ms" }}>i</span>
+                  <span style={{ transitionDelay: "200ms" }}>l</span>
+                </label>
+                {formik.errors.email && formik.touched.email ? (
+                <div
+                  role="alert"
+                  className="bg-red-100 dark:bg-red-900 border-l-4 border-red-500 dark:border-red-700 text-red-900 dark:text-red-100 p-2 rounded-lg flex items-center transition duration-300 ease-in-out hover:bg-red-200 dark:hover:bg-red-800 transform mt-2 hover:scale-105 "
+                >
+                  <svg
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="h-5 w-5 flex-shrink-0 mr-2 text-red-600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13 16h-1v-4h1m0-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      strokeWidth="2"
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                    ></path>
+                  </svg>
+                  <p className="text-xs font-semibold">
+                    Error - {formik.errors.email}
+                  </p>
+                </div>
+              ) : null}
+              {!formik.errors.email && formik.touched.email ? (
+                <div
+                  role="alert"
+                  className="bg-green-100 dark:bg-green-900 border-l-4 border-green-500 dark:border-green-700 text-green-900 dark:text-green-100 p-2 rounded-lg flex items-center transition duration-300 ease-in-out hover:bg-green-200 dark:hover:bg-green-800 transform hover:scale-105 mt-2"
+                >
+                  <svg
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="h-5 w-5 flex-shrink-0 mr-2 text-green-600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13 16h-1v-4h1m0-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      strokeWidth="2"
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                    ></path>
+                  </svg>
+                  <p className="text-xs font-semibold">
+                    Success - Everything went smoothly!
+                  </p>
+                </div>
+              ) : null}
+              </div>
+            </div>
             <div className="md:flex md:flex-wrap md:justify-around md:items-center">
               <div className="form-control w-[50%]">
                 <input

@@ -1,6 +1,5 @@
 import "./App.css";
 import {
-  createBrowserRouter,
   createHashRouter,
   RouterProvider,
 } from "react-router-dom";
@@ -21,7 +20,7 @@ import { ReactQueryDevtools } from "./../node_modules/@tanstack/react-query-devt
 import AddCartContextProvider from "./context/addCartContext";
 import { ToastContainer } from "react-toastify";
 import Checkout from "./Component/Checkout/Checkout";
-import { CheckoutInfoProvider } from "./context/checkoutContext";
+import CheckoutInfoProvider from "./context/checkoutContext";
 import Allorders from "./Component/Allorders/Allorders";
 import OredrscontextProvider from "./context/ordersContext";
 import Brands from "./Component/Brands/Brands";
@@ -31,7 +30,7 @@ import ForgetPassword from "./Component/ForgetPassword/ForgetPassword";
 import ResetCode from "./Component/ResetCode/ResetCode";
 import RePassword from "./Component/RePassword/RePassword";
 
-let routing = createBrowserRouter([
+let routing = createHashRouter([
   {
     path: "/",
     element: <Layout />,
