@@ -81,10 +81,9 @@ export default function RecentProduct() {
       setCountWishlist(CountWishlist + 1);
 
       // Toggle the wishlist status for this product ID
-      setWishlistStatus((prev) => ({
-        ...prev,
-        [id]: !prev[id], // Toggle the state for this product ID
-      }));
+      setWishlistStatus((prev) => ({...prev,          [id]: !prev[id], // Toggle the state for this product ID
+        
+}));
 
       toast.success(res.data.message, {
         position: "top-center",
@@ -158,19 +157,10 @@ export default function RecentProduct() {
             <div className="product-title">
               <span
                 className="cursor-pointer"
-                onClick={() =>
-                  wishlistStatus[product.id] ||
-                  TargetWishlist.filter((item) => item == product.id) ==
-                    product.id
-                    ? deletItem(product.id)
-                    : handellWishlist(product.id)
+                onClick={() => wishlistStatus[product.id] || TargetWishlist.filter((item) => item == product.id) ==product.id ? deletItem(product.id): handellWishlist(product.id)
                 }
               >
-                {wishlistStatus[product.id] ||
-                TargetWishlist.filter((item) => item == product.id) ==
-                  product.id
-                  ? "❤️"
-                  : "🖤"}
+                {wishlistStatus[product.id] ||TargetWishlist.filter((item) => item == product.id) == product.id ? "❤️" : "🖤"}
               </span>
               {product.title.split(" ").splice(0, 2).join(" ")}
               <div className="cost flex justify-around items-center">
